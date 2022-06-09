@@ -15,12 +15,11 @@
       embedded
       arjs="sourceType: webcam; debugUIEnabled: false;"
     >
-                <a-image
-                    src="assets/asset.png"
-                    look-at="[gps-camera]"
-                    scale="2 2 2"
-                    gps-entity-place="latitude: 35.6586; longitude: 139.7454;"
-                ></a-image>
+      <a-box
+        material="color: red"
+        gps-entity-place="latitude: 43.062533; longitude: 141.353638;"
+        scale="50 50 50"
+      ></a-box>
       <a-camera gps-camera rotation-reader> </a-camera>
     </a-scene>
   </body>
