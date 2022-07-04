@@ -10,7 +10,7 @@
 </head>
     
 <style>
-  .buttons {
+  .para {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -21,22 +21,12 @@
     align-items: center;
     z-index: 10;
   }
-
-  .say-hi-button {
-    padding: 0.25em;
-    border-radius: 4px;
-    border: none;
-    background: white;
-    color: black;
-    width: 4em;
-    height: 2em;
-  }
-  </style>
+</style>
 
   
 <body style="margin: 0; overflow: hidden;">  
-  <div class="buttons">
-    <button class="say-hi-button">SAY HI!</button>
+  <div class="para">
+    <p>test</p>
   </div>
   <a-scene vr-mode-ui="enabled: true" embedded arjs="sourceType: webcam; debugUIEnabled: false;">
     <a-text value="Sports Park" look-at="[gps-camera]" scale="250 250 250" gps-entity-place="latitude: 36.575936150369905; longitude: 140.64870926651128;"></a-text>
