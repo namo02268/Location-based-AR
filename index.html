@@ -42,24 +42,5 @@
     <a-text value="Sports Park" look-at="[gps-camera]" scale="250 250 250" gps-entity-place="latitude: 36.575936150369905; longitude: 140.64870926651128;"></a-text>
     <a-camera gps-camera rotation-reader> </a-camera>
   </a-scene>
-  <button onclick="getLocation()">Try It</button>
-  <p id="gps"></p>
-  <script>
-    var x = document.getElementById("gps");
-
-    function getLocation() {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-      } else { 
-        x.innerHTML = "Geolocation is not supported by this browser.";
-      }
-    }
-
-    function showPosition(position) {
-      x.innerHTML = "Latitude: " + position.coords.latitude + 
-      "<br>Longitude: " + position.coords.longitude;
-    }
-  </script>
-
 </body>
 </html>
