@@ -11,10 +11,11 @@
 
 <body style="margin: 0; overflow: hidden;">  
   <a-scene vr-mode-ui="enabled: true" embedded arjs="sourceType: webcam; debugUIEnabled: false;">
-    <a-text id="gps"></a-text>
     <a-text value="Sports Park" look-at="[gps-camera]" scale="250 250 250" gps-entity-place="latitude: 36.575936150369905; longitude: 140.64870926651128;"></a-text>
     <a-camera gps-camera rotation-reader> </a-camera>
   </a-scene>
+  <button onclick="getLocation()">Try It</button>
+  <p id="gps"></p>
   <script>
     var x = document.getElementById("gps");
 
