@@ -7,26 +7,41 @@
   <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
   <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
-</head>
-    
-<style>
-  .para {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 5em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 10;
-  }
-</style>
+  <script>
+  var x = document.getElementById("loc");
 
+  function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+      x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+  }
+
+  function showPosition(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude;
+  }
+  </script>
+
+  <style>
+    .para {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 5em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+    }
+  </style>
+</head>
   
 <body style="margin: 0; overflow: hidden;">  
   <div class="para">
-    <p>test</p>
+    <p id="loc">test</p>
   </div>
   <a-scene vr-mode-ui="enabled: true" embedded arjs="sourceType: webcam; debugUIEnabled: false;">
     <a-text value="Sports Park" look-at="[gps-camera]" scale="250 250 250" gps-entity-place="latitude: 36.575936150369905; longitude: 140.64870926651128;"></a-text>
