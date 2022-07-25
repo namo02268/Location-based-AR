@@ -31,7 +31,10 @@
   
   <script>
     window.addEventListener('DOMContentLoaded', () => {
-        document.getElementById('debug').textContent = "test2";
+      const debug = document.getElementById('debug');
+      debug.addEventListener('gps-camera-update-positon', (event) => {
+         debug.textContent = `Distance${event.detail.position}m`;
+      });
     });
   </script>
 
