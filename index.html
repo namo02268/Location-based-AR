@@ -30,9 +30,9 @@
   </a-scene>
   
   <script>
-      window.addEventListener('gps-camera-update-position', (event) => {
+      window.addEventListener('gps-entity-place-update-positon', (event) => {
          const debug = document.getElementById('debug');
-         debug.textContent = event.detail.position.longitude;
+         debug.textContent = event.detail.distance;
         console.log(event.detail.position.longitude);
       });
   </script>
