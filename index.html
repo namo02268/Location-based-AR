@@ -32,9 +32,8 @@
   <script>
     window.addEventListener('DOMContentLoaded', () => {
       const debug = document.getElementById('debug');
-      debug.addEventListener('gps-camera-update-positon', (event) => {
-        const distanceMsg = document.querySelector('[gps-entity-place]').getAttribute('distanceMsg');
-         debug.textContent = distanceMsg;
+      debug.addEventListener('gps-camera-update-position', (event) => {
+         debug.textContent = `Distance${event.detail.position}m`;
       });
     });
   </script>
