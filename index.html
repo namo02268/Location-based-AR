@@ -71,6 +71,7 @@
     ・上にも書きましたが、https://ar-js-org.github.io/AR.js-Docs/ui-events/#custom-eventsのCustom Eventsの項を見てみると、
     ・Payload　{ detail: { position: <GeolocationCoordinates>, origin: <GeolocationCoordinates> }}と書いてあるので、
     ・event.detail.positionにアクセスするとカメラの緯度経度の情報が得られるようです。
+    ・少し歩きまわってみると、緯度経度の数字が更新されると思います。
 
     console.log(event.detail.position.longitude);
     ・デバッグのためにコンソールに出力しています。
