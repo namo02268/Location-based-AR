@@ -29,13 +29,14 @@
       <a-camera gps-camera rotation-reader> </a-camera>
   </a-scene>
   <script>
-    window.addEventListener('DOMContentLoaded', () => {
+    window.addEventListener('load', () => {
       const text = document.getElementById('text');
-      text.addEventListener('gps-entity-place-update-positon', (event) => {
-        document.getElementById('debug').textContent = `Distance${event.detail.distance}m`;
+      text.addEventListener('gps-camera-update-positon', (event) => {
+        document.getElementById('debug').textContent = `Distance${event.detail.position}m`;
         text.setAttribute('value', text.getAttribute('distanceMsg') + ' left');
       });
     });
   </script>
+
 </body>
 </html>
