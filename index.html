@@ -30,13 +30,10 @@
   </a-scene>
   
   <script>
-    window.addEventListener('load', () => {
-      const text = document.getElementById('text');
-      text.addEventListener('gps-camera-update-positon', (event) => {
+      const debug = document.getElementById('debug');
+      debug.addEventListener('gps-camera-update-positon', (event) => {
         document.getElementById('debug').textContent = `Distance${event.detail.position}m`;
-        text.setAttribute('value', text.getAttribute('distanceMsg') + ' left');
       });
-    });
   </script>
 
 </body>
