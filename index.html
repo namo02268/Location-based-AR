@@ -33,6 +33,7 @@
       window.addEventListener('gps-camera-update-position', (event) => {
          const debug = document.getElementById('debug');
          debug.textContent = "test2";
+        console.log(event.detail.position);
       });
   </script>
 
