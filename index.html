@@ -30,7 +30,7 @@
   </a-scene>
   
   <script>
-      window.addEventListener('gps-entity-place-update-positon', (event) => {
+      window.addEventListener('gps-entity-place-update-position', (event) => {
          const debug = document.getElementById('debug');
          debug.textContent = event.detail.distance;
         console.log(event.detail.distance);
