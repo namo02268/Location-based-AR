@@ -32,7 +32,7 @@
   <script>
       window.addEventListener('gps-camera-update-position', (event) => {
          const debug = document.getElementById('debug');
-         debug.textContent = "longitude: " + event.detail.position.longitude + " | latitude: " + event.detail.position.latitude;
+         debug.innerHTML = "<p>longitude: " + event.detail.position.longitude + "</p>" + "<p>latitude: " + event.detail.position.latitude + "</p>";
          console.log(event.detail.position.longitude);
       });
   </script>
