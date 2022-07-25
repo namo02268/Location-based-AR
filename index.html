@@ -32,7 +32,7 @@
   <script>
       window.addEventListener('gps-camera-update-position', (event) => {
          const debug = document.getElementById('debug');
-         debug.textContent = event.detail.distance;
+         debug.textContent = event.detail.position.longitude;
          console.log(event.detail.position.longitude);
       });
   </script>
