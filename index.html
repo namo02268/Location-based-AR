@@ -4,9 +4,22 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Location-based AR.js demo</title>
+
+  <!-- ライブラリの読み込み -->
   <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
   <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+
+  <!--
+    debugのスタイル指定 z-indexが大きいオブジェクトが手前に表示されます。
+    ・position：位置の設定、fixedで大丈夫そうです。
+    ・z-index：大きい値の要素が手前に表示されます。今回はカメラ画像(z-index=0)の上に表示させたいので、z-index=1とかでもOKです。
+    ・background-color：背景色
+    ・padding：余白の指定
+    ・top：要素の位置指定（上）
+    ・left：要素の位置指定（左）
+    ・display：要素の表示形式
+  -->
   <style>
     #debug {
       position: fixed;
@@ -22,20 +35,53 @@
 </head>
 
 <body style="margin: 0; overflow: hidden;">
+  <!--
+    画面上の文字表示
+    id=debugはjavascriptやcssから認識するためのものです。
+    今回は　cssの#debug　と　javascriptのgetElementById('debug')　から参照しています。
+    距離の値が反映されるので中身は空欄でOKです。
+  -->
   <div id="debug"></div>
-    <a-scene vr-mode-ui="enabled: true" embedded arjs="sourceType: webcam; debugUIEnabled: false;">
-      <a-text value="Bamiyan Hitachi ayukawa" look-at="[gps-camera]" scale="100 100 100" gps-entity-place="latitude: 36.57299436613212; longitude: 140.63474959534113;"></a-text>
-      <a-text id="text" value="" look-at="[gps-camera]" scale="30 30 30" position="0 55 0" gps-entity-place="latitude: 36.57299436613212; longitude: 140.63474959534113;"></a-text>
-      <a-camera gps-camera rotation-reader> </a-camera>
-  </a-scene>
-  
-  <script>
-      window.addEventListener('gps-camera-update-position', (event) => {
-         const debug = document.getElementById('debug');
-         debug.innerHTML = "<p>longitude: " + event.detail.position.longitude + "</p>" + "<p>latitude: " + event.detail.position.latitude + "</p>";
-         console.log(event.detail.position.longitude);
-      });
-  </script>
 
+  <!--ARシーンの開始-->
+  <a-scene vr-mode-ui="enabled: true" embedded arjs="sourceType: webcam; debugUIEnabled: false;">
+    <!-- バーミヤンのAR文字 -->
+    <a-text value="Bamiyan Hitachi ayukawa" look-at="[gps-camera]" scale="100 100 100" gps-entity-place="latitude: 36.57299436613212; longitude: 140.63474959534113;"></a-text>
+    <!-- ARカメラの設定-->
+    <a-camera gps-camera rotation-reader> </a-camera>
+  </a-scene>
+  <!-- ARシーンの終了 -->
+
+  <!--
+    addEventListener：イベントを追加する関数
+    ・第一引数にはイベントを発生させるタイミングを指定します
+      ・gps-camera-update-position：gps-cameraが位置を更新したときに実行されます。
+      ・https://ar-js-org.github.io/AR.js-Docs/ui-events/#custom-eventsのCustom Eventsの項を参照。
+    ・第二引数には実行させたい関数を指定します。
+      ・ここではアロー関数を指定しています。
+      ・アロー関数は簡易的な関数の書き方です。
+      ・わからなかったら「アロー関数」調べてみてください。
+
+    const debug = document.getElementById('debug');
+    ・id=debugの要素を取得しているだけです。
+
+    debug.innerHTML = "<p>longitude: " + event.detail.position.longitude + "</p>" + "<p>latitude: " + event.detail.position.latitude + "</p>";
+    ・debugのinnerHTMLに緯度経度を代入しています。
+    ・HTMLのタグも反映させたいため、textContentではなく、innerHTMLを使っています。
+    ・上にも書きましたが、https://ar-js-org.github.io/AR.js-Docs/ui-events/#custom-eventsのCustom Eventsの項を見てみると、
+    ・Payload　{ detail: { position: <GeolocationCoordinates>, origin: <GeolocationCoordinates> }}と書いてあるので、
+    ・event.detail.positionにアクセスするとカメラの緯度経度の情報が得られるようです。
+
+    console.log(event.detail.position.longitude);
+    ・デバッグのためにコンソールに出力しています。
+    ・iphoneでのコンソールの見方はhttps://qiita.com/shuuuta/items/2280dcca127634f6173eを読んでみて下さい。
+  -->
+  <script>
+    window.addEventListener('gps-camera-update-position', (event) => {
+      const debug = document.getElementById('debug');
+      debug.innerHTML = "<p>longitude: " + event.detail.position.longitude + "</p>" + "<p>latitude: " + event.detail.position.latitude + "</p>";
+      console.log(event.detail.position.longitude);
+    });
+  </script>
 </body>
 </html>
