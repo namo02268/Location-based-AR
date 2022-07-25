@@ -30,12 +30,10 @@
   </a-scene>
   
   <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      const debug = document.getElementById('debug');
-      debug.addEventListener('gps-camera-update-position', (event) => {
-         debug.textContent = `Distance${event.detail.position.coords.latitude}m`;
+      window.addEventListener('gps-camera-update-position', (event) => {
+         const debug = document.getElementById('debug');
+         debug.textContent = "test2";
       });
-    });
   </script>
 
 </body>
