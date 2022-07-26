@@ -35,6 +35,11 @@
         currentPos.textContent = `現在地\n lon=${event.detail.position.longitude}\n lat=${event.detail.position.latitude}`;
       });
     });
+
+    marker.addEventListener('markerFound', () => {
+      document.getElementById('distance').textContent = `マーカーが見つかりました`;
+    });
+
   </script>
 
   <!--
