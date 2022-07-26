@@ -11,7 +11,7 @@ window.addEventListener('load', () => {
     // distinationに座標の値を代入
     document.getElementById('distination').textContent = `目的地の座標 x:${distinationPos.x.toFixed(1)}m, y:${distinationPos.y.toFixed(1)}m, z:${distinationPos.z.toFixed(1)}m`;
 
-    // currentPosとdistinationPosのベクトル差を計算
+    // currentPosとdistinationPosの距離を計算
     distance = currentPos.distanceTo(distinationPos);
     // distanceに値を代入
     document.getElementById('distance').textContent = `目的地までの距離: ${distance.toFixed(1)}m`
