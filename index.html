@@ -15,32 +15,51 @@
 </head>
 
 <body style="margin: 0; overflow: hidden;">
-  <!--テキストボックス-->
   <div id="TextBox">
-    <p id="currentPos"></p>
+    <p id="current"></p>
     <p id="distance"></p>
   </div>
 
-  <!--ARシーン-->
   <a-scene vr-mode-ui="enabled: true" embedded arjs="sourceType: webcam; debugUIEnabled: false;">
-    <a-text id="Bamiyan" value="Bamiyan Hitachi ayukawa" look-at="[gps-camera]" scale="100 100 100" gps-entity-place="latitude: 36.57299436613212; longitude: 140.63474959534113;"></a-text>
+    <a-text id="marker" value="Bamiyan Hitachi ayukawa" look-at="[gps-camera]" scale="100 100 100" gps-entity-place="latitude: 36.57299436613212; longitude: 140.63474959534113;"></a-text>
     <a-camera id="camera" gps-camera rotation-reader> </a-camera>
   </a-scene>
 
-  <!--スクリプト-->
   <script>
     window.addEventListener('load', () => {
-      window.addEventListener('gps-camera-update-position', (event) => {
-        const currentPos = document.getElementById('currentPos');
-        currentPos.textContent = `現在地: lon=${event.detail.position.longitude} lat=${event.detail.position.latitude}`;
+      const camera = document.getElementById('camera');
+      const marker = document.getElementById('marker');
+      let interval;
+
+      marker.addEventListener('markerFound', () => {
+        let cameraPos = camera.object3D.position;
+        let markerPos = marker.object3D.position;
+        let distance = cameraPos.distanceTo(markerPos);
+
+        interval = setInterval(() => {
+          cameraPos = camera.object3D.position;
+          markerPos = marker.object3D.position;
+          distance = cameraPos.distanceTo(markerPos);
+
+          document.getElementById('distance').textContent = `目的地までの距離: ${distance}m`;
+        }, 100);
       });
 
-      const Bamiyan = document.getElementById('Bamiyan');
-      Bamiyan.addEventListener('gps-entity-place-update-positon', (event) => {
-        const distance = document.getElementById("distance");
-        distance.textContent = `距離:${event.detail.distance}m`;
+      marker.addEventListener('markerLost', () => {
+        clearInterval(interval);
+        document.getElementById('distance').textContent = `マーカーが見つかりません`;
       });
+
     });
   </script>
+
+  <!--
+  <script>
+    window.addEventListener('gps-camera-update-position', (event) => {
+      const debug = document.getElementById('TextBox');
+      debug.innerHTML = "<p>longitude: " + event.detail.position.longitude + "</p>" + "<p>latitude: " + event.detail.position.latitude + "</p>";
+    });
+  </script>
+  -->
 </body>
 </html>
