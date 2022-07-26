@@ -26,6 +26,9 @@
   </a-scene>
 
   <script>
+    const camera = document.getElementById('camera');
+    const marker = document.getElementById('marker');
+
     window.addEventListener('load', () => {
       window.addEventListener('gps-camera-update-position', (event) => {
         let currentPos = document.getElementById('currentPos');
