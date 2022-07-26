@@ -30,13 +30,13 @@
     window.addEventListener('load', () => {
       setInterval(() => {
         const currentPos = document.getElementById('camera').object3D.position;
-        document.getElementById('current').textContent = '現在地: lon=${currentPos.longitude} lat=&{currentPos.latitude}';
+        document.getElementById('current').textContent = `現在地: lon=${currentPos.longitude} lat=&{currentPos.latitude}`;
 
         const distinationPos = document.getElementById('Bamiyan');
-        document.getElementById('distination').textContent = '目的地: lon=${distinationPos.longitude} lat=&{distinationPos.latitude}';
+        document.getElementById('distination').textContent = `目的地: lon=${distinationPos.longitude} lat=&{distinationPos.latitude}`;
 
         distance = currentPos.distanceTo(distinationPos);
-        document.getElementById('distance').textContent = '目的地までの距離: ${distance}m'
+        document.getElementById('distance').textContent = `目的地までの距離: ${distance}m`
       }, 100);
     });
   </script>
