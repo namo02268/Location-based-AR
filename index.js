@@ -6,6 +6,8 @@ window.addEventListener('load', () => {
     // currentに座標の値を代入
     document.getElementById('current').textContent = `現在地の座標 x:${currentPos.x.toFixed(1)}m, y:${currentPos.y.toFixed(1)}m, z:${currentPos.z.toFixed(1)}m`;
 
+    console.log(document.getElementById('camera').toSource());
+
     // 目的地（バーミヤン）の空間座標を取得
     const distinationPos = document.getElementById('Bamiyan').object3D.position;
     // distinationに座標の値を代入
@@ -15,5 +17,5 @@ window.addEventListener('load', () => {
     distance = currentPos.distanceTo(distinationPos);
     // distanceに値を代入
     document.getElementById('distance').textContent = `目的地までの距離: ${distance.toFixed(1)}m`
-  }, 100);
+  }, 3000);
 });
