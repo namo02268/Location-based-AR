@@ -27,9 +27,10 @@
 
   <script>
     window.addEventListener('load', () => {
+      const camera = getElementById('camera');
       window.addEventListener('gps-camera-update-position', (event) => {
-        const debug = document.getElementById('currentPos');
-        debug.innerHTML = "<p>longitude: " + event.detail.position.longitude + "</p>" + "<p>latitude: " + event.detail.position.latitude + "</p>";
+        const currentPos = document.getElementById('currentPos');
+        currentPos.textContent = `現在地: lon=${event.detail.position.longitude} lat=${event.detail.position.latitude}`;
       });
     });
   </script>
