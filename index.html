@@ -24,13 +24,10 @@
 
   <script>
     window.addEventListener('load', () => {
-      const camera = document.getElementById('camera');
       const Bamiyan = document.getElementById('Bamiyan');
-
-      setInterval(() => {
-        cameraPosition = camera.object3D.position;
-        document.getElementById('TextBox').textContent = cameraPosition;
-      }, 100);
+      Bamiyan.addEventListener('gps-entity-place-update-position', (event) => {
+        document.getElementById('TextBox').textContent = `Distance: ${event.detail.distance}m`;
+      });
     });
   </script>
 
