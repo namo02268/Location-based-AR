@@ -1,0 +1,9 @@
+#TextBox {
+  position: fixed;
+  z-index: 10000;
+  background-color: transparent;
+  padding: 10px;
+  top: 0;
+  left: 0;
+  display: block;
+}
