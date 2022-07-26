@@ -19,13 +19,18 @@
 
   <a-scene vr-mode-ui="enabled: true" embedded arjs="sourceType: webcam; debugUIEnabled: false;">
     <a-text id="Bamiyan" value="Bamiyan Hitachi ayukawa" look-at="[gps-camera]" scale="100 100 100" gps-entity-place="latitude: 36.57299436613212; longitude: 140.63474959534113;"></a-text>
-    <a-camera gps-camera rotation-reader> </a-camera>
+    <a-camera id="camera" gps-camera rotation-reader> </a-camera>
   </a-scene>
 
   <script>
-    const Bamiyan = document.getElementById('Bamiyan');
-    Bamiyan.addEventListener('gps-entity-place-update-position', (event) => {
-      document.getElementById('TextBox').textContent = `Distance : ${event.detail.distance}m`;
+    window.addEventListener('load', () => {
+      const camera = document.getElementById('camera');
+      const Bamiyan = document.getElementById('Bamiyan');
+
+      setInterval(() => {
+        cameraPosition = camera.object3D.position;
+        document.getElementById('TextBox').textContent = cameraPosition;
+      }, 100);
     });
   </script>
 
