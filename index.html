@@ -17,8 +17,7 @@
 <body style="margin: 0; overflow: hidden;">
   <!--テキストボックス-->
   <div id="TextBox">
-    <p id="current"></p>
-    <p id="distination"></p>
+    <p id="currentPos"></p>
     <p id="distance"></p>
   </div>
 
@@ -31,18 +30,16 @@
   <!--スクリプト-->
   <script>
     window.addEventListener('load', () => {
-      setInterval(() => {
-        const current = document.getElementById('camera');
-        const distination = document.getElementById('Bamiyan');
+      window.addEventListener('gps-camera-update-position', (event) => {
+        const currentPos = document.getElementById('currentPos');
+        currentPos.textContent = `現在地: lon=${event.detail.position.longitude} lat=${event.detail.position.latitude}`;
+      });
 
-        document.getElementById('current').textContent = `現在地: lon=${current.position.longitude} lat=${current.position.latitude}`;
-
-        document.getElementById('distination').textContent = `目的地: lon=${distination.position.longitude} lat=${distination.position.latitude}`;
-
-        distance = current.object3D.position(distination.object3D.position);
-        document.getElementById('distance').textContent = `目的地までの距離: ${distance}m`
-      }, 100);
-    });
+      const Bamiyan = document.getElementById('Bamiyan');
+      Bamiyan.addEventListener('gps-entity-place-update-positon', (event) => {
+        const distance = document.getElementById("distance");
+        distance.textContent = `距離:${event.detail.distance}m`;
+      });
   </script>
 
   <!--
