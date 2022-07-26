@@ -1,5 +1,5 @@
 window.addEventListener('load', () => {
-  // 100msごとに実行
+  // 1000msごとに実行
   setInterval(() => {
     // カメラ
     const camera = document.getElementById('camera');
@@ -20,5 +20,5 @@ window.addEventListener('load', () => {
     // 距離
     distance = cPos.distanceTo(dPos);
     document.getElementById('distance').textContent = `${distance.toFixed(1)}m`
-  }, 100);
+  }, 1000);
 });
