@@ -4,7 +4,7 @@ window.addEventListener('load', () => {
     // 現在地（カメラ）の空間座標を取得
     const currentPos = document.getElementById('camera').object3D.position;
     // currentに座標の値を代入
-    document.getElementById('current').textContent = `現在地の座標 x:${currentPos.x.toFixed(1)}, y:${currentPos.y.toFixed(1)}, z:${currentPos.z.toFixed(1)}`;
+    document.getElementById('current').textContent = `現在地の座標 x:${currentPos.x.toFixed(1)}\n, y:${currentPos.y.toFixed(1)}, z:${currentPos.z.toFixed(1)}`;
 
     // 目的地（バーミヤン）の空間座標を取得
     const distinationPos = document.getElementById('Bamiyan').object3D.position;;
