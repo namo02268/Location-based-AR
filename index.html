@@ -27,8 +27,8 @@
 
   <script>
     window.addEventListener('load', () => {
-      const camera = document.querySelector('[camera]');
-      const marker = document.querySelector('a-marker');
+      const camera = document.getElementById('camera');
+      const marker = document.getElementById('marker');
       let interval;
 
       camera.addEventListener('gps-camera-update-position', (event) => {
