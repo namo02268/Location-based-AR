@@ -3,17 +3,17 @@ window.addEventListener('load', () => {
   setInterval(() => {
     // カメラ
     const camera = document.getElementById('camera');
-    const cPos = camera.object3D.position;
+    const cPos = camera.getAttribute('position');
     const cLatLon = camera.components['gps-camera'].currentCoords;
 
     document.getElementById('cPos').textContent = `x:${cPos.x.toFixed(1)}m, y:${cPos.y.toFixed(1)}m, z:${cPos.z.toFixed(1)}m`;
     document.getElementById('cLatLon').textContent = `lat:${cLatLon.latitude}, lon:${cLatLon.longitude}`;
 
-    console.log(camera);
+    console.log(document.getElementById('dText').getAttribute('value'));
 
     // 目的地
     const distination = document.getElementById('distination');
-    const dPos = distination.object3D.position;
+    const dPos = distination.getAttribute('position');
     const dLatLon = distination.components['gps-entity-place'].attrValue;
 
     document.getElementById('dPos').textContent = `x:${dPos.x.toFixed(1)}m, y:${dPos.y.toFixed(1)}m, z:${dPos.z.toFixed(1)}m`;
