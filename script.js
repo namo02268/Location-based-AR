@@ -22,6 +22,6 @@ window.addEventListener('load', () => {
     // 距離
     distance = cPos.distanceTo(dPos);
     document.getElementById('distance').textContent = `${distance.toFixed(1)}m`;
-    document.getElementById('dText').setAttribute('value', `${distance.toFixed(1)}m`);
+    //    document.getElementById('dText').setAttribute('value', `${distance.toFixed(1)}m`);
   }, 1000);
 });
