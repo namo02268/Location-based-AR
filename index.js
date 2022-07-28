@@ -1,4 +1,3 @@
-/*
 window.addEventListener('load', () => {
   // 1000msごとに実行
   setInterval(() => {
@@ -25,4 +24,3 @@ window.addEventListener('load', () => {
     document.getElementById('distance').textContent = `${distance.toFixed(1)}m`
   }, 1000);
 });
-*/
