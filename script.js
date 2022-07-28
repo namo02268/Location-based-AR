@@ -9,7 +9,7 @@ window.addEventListener('load', () => {
     document.getElementById('cPos').textContent = `x:${cPos.x.toFixed(1)}m, y:${cPos.y.toFixed(1)}m, z:${cPos.z.toFixed(1)}m`;
     document.getElementById('cLatLon').textContent = `lat:${cLatLon.latitude}, lon:${cLatLon.longitude}`;
 
-    console.log(document.getElementById('dText').getAttribute('value'));
+    console.log(camera);
 
     // 目的地
     const distination = document.getElementById('distination');
@@ -22,6 +22,5 @@ window.addEventListener('load', () => {
     // 距離
     distance = cPos.distanceTo(dPos);
     document.getElementById('distance').textContent = `${distance.toFixed(1)}m`;
-    document.getElementById('dText').setAttribute('value', `ssssss`);
   }, 1000);
 });
