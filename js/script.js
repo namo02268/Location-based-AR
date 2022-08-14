@@ -21,6 +21,6 @@ window.addEventListener('load', () => {
 
     // 距離
     distance = cPos.distanceTo(dPos);
-    document.querySelector('.distance').textContent = `${distance.toFixed(1)} meters`;
+    document.querySelector('.distance').innerHTML = `${distance.toFixed(1)} meters`;
   }, 1000);
 });
