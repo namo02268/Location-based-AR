@@ -5,7 +5,6 @@
 }
 
 body {
-  margin: 0;
   overflow: hidden;
 }
 
@@ -13,10 +12,8 @@ h3 {
   font-size: 16px;
 }
 
-p {}
-
 .TextBox {
-  position: absolute;
+  position: fixed;
   z-index: 1;
   background-color: rgba(255, 255, 255, 0.4);
   padding: 0px;
@@ -26,22 +23,21 @@ p {}
 }
 
 .centerBox {
-  position: absolute;
+  position: fixed;
   z-index: 1;
-  top: 80%;
+  bottom: 50px;
   left: 30%;
-  height: 10%;
+  height: 50px;
   width: 40%;
-  display: flex;
   background-color: rgba(255, 255, 255, 0.7);
   border: 2px solid #333;
   border-radius: 10px;
+  text-align: center;
 }
 
 .distance {
-  position: absolute;
-  top: 10%;
-  left: 40%;
+  font-weight: 600;
   color: #333;
-  font-size: 25px;
+  font-size: 15px;
+  line-height: 50px;
 }
