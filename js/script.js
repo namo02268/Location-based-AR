@@ -5,7 +5,6 @@ window.addEventListener('load', () => {
     const camera = document.querySelector('.camera');
     const cPos = camera.getAttribute('position');
     const cLatLon = camera.components['gps-camera'].currentCoords;
-
     document.querySelector('.cPos').textContent = `x:${cPos.x.toFixed(1)}m, y:${cPos.y.toFixed(1)}m, z:${cPos.z.toFixed(1)}m`;
     document.querySelector('.cLatLon').textContent = `lat:${cLatLon.latitude}, lon:${cLatLon.longitude}`;
 
@@ -21,6 +20,6 @@ window.addEventListener('load', () => {
 
     // 距離
     distance = cPos.distanceTo(dPos);
-    document.querySelector('.distance').innerHTML = `${distance.toFixed(1)} meters`;
+    document.querySelector('.distance').textContent = `${distance.toFixed(1)} meters`;
   }, 1000);
 });
