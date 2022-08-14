@@ -18,25 +18,25 @@
 </head>
 
 <body>
-  <div id="TextBox">
+  <div class="TextBox">
     <h3>カメラ</h3>
-    <p id="cPos"></p>
-    <p id="cLatLon"></p>
+    <p class="cPos"></p>
+    <p class="cLatLon"></p>
     <h3>目的地</h3>
-    <p id="dPos"></p>
-    <p id="dLatLon"></p>
+    <p class="dPos"></p>
+    <p class="dLatLon"></p>
   </div>
 
   <div class="centerBox">
-    <p id="distance"></p>
+    <p class="distance"></p>
   </div>
 
   <!--ARシーン-->
   <a-scene vr-mode-ui="enabled: true" embedded arjs="sourceType: webcam; debugUIEnabled: false;">
     <!--目的地-->
-    <a-text id="distination" value="Bamiyan Hitachi ayukawa" look-at="[gps-camera]" scale="100 100 100" gps-entity-place="latitude: 36.57299436613212; longitude: 140.63474959534113;"></a-text>
+    <a-text class="distination" value="Bamiyan Hitachi ayukawa" look-at="[gps-camera]" scale="100 100 100" gps-entity-place="latitude: 36.57299436613212; longitude: 140.63474959534113;"></a-text>
     <!--カメラ-->
-    <a-camera id="camera" gps-camera rotation-reader> </a-camera>
+    <a-camera class="camera" gps-camera rotation-reader> </a-camera>
   </a-scene>
 </body>
 </html>

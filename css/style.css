@@ -32,18 +32,18 @@ p {
 .centerBox {
   position: absolute;
   z-index: 2;
-  backdrop-filter: blur(12px);
   top: 80%;
   left: 30%;
   height: 10%;
   width: 40%;
   display: flex;
+  filter: blur(2px);
 
   border: 2px solid #333;
   border-radius: 10px;
 }
 
-#distance {
+.distance {
   text-align: center;
   color: white;
 }
