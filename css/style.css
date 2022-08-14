@@ -1,5 +1,18 @@
 @charset "utf-8";
 
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+h3 {
+  font-size: 16px;
+}
+
+p {
+  font-size: 14px;
+}
+
 #TextBox {
   position: fixed;
   z-index: 1;
