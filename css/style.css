@@ -25,12 +25,11 @@ h3 {
 .centerBox {
   position: fixed;
   z-index: 1;
-  bottom: 50px;
-  left: 30%;
+  bottom: 30px;
+  left: 25%;
   height: 50px;
-  width: 40%;
+  width: 50%;
   background-color: rgba(255, 255, 255, 0.7);
-  border: 2px solid #333;
   border-radius: 10px;
   text-align: center;
 }
@@ -38,6 +37,6 @@ h3 {
 .distance {
   font-weight: 600;
   color: #333;
-  font-size: 15px;
-  line-height: 25px;
+  font-size: 25px;
+  line-height: 5px;
 }
