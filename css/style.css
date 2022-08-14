@@ -33,19 +33,15 @@ p {}
   height: 10%;
   width: 40%;
   display: flex;
-
+  background-color: rgba(255, 255, 255, 0.7);
   border: 2px solid #333;
   border-radius: 10px;
-}
-
-.centerBox::before {
-  filter: blur(2px);
 }
 
 .distance {
   position: absolute;
   top: 10%;
   left: 40%;
-  color: white;
+  color: #333;
   font-size: 25px;
 }
