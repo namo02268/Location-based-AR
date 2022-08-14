@@ -23,11 +23,17 @@ p {
   display: block;
 }
 
-.dist {
-  position: fixed;
+.centerBox {
+  position: absolute;
   z-index: 2;
-  background-color: cadetblue;
-  top: 50%;
-  left: 50%;
-  display: block;
+  background-color: white;
+  backdrop-filter: blur(12px);
+  top: 80%;
+  left: 30%;
+  height: 10%;
+  width: 40%;
+  display: flex;
+
+  border: 2px solid #333;
+  border-radius: 10px;
 }
